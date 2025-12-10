@@ -13,6 +13,32 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
+    // Optimize images at build time since Cloudflare doesn't support sharp at runtime
+    imageService: "compile",
   }),
   trailingSlash: "ignore",
+  // Image optimization settings
+  image: {
+    // Use sharp for high-quality image processing
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        limitInputPixels: false,
+      },
+    },
+  },
+  // Build optimization
+  build: {
+    // Inline small assets
+    inlineStylesheets: "auto",
+  },
+  // Vite optimizations
+  vite: {
+    build: {
+      // Better code splitting
+      cssCodeSplit: true,
+      // Minification
+      minify: "esbuild",
+    },
+  },
 });
