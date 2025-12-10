@@ -1,14 +1,28 @@
 {
-	"name": "moldovawebsitefull",
-	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat"],
-	"main": "./dist/_worker.js/index.js",
-	"assets": {
-		"directory": "./dist",
-		"binding": "ASSETS"
-	},
-	"observability": {
-		"enabled": true
-	},
-	"upload_source_maps": true
+  "name": "moldovawebsitefull",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./dist/_worker.js/index.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "moldovawebsite.md",
+      "zone_name": "moldovawebsite.md",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {
+    "RESEND_FROM": "moldovawebsite.md <noreply@mail.moldovawebsite.md>",
+    "RESEND_TO": "contact@moldovawebsite.md",
+    "REPLY_TO": "contact@moldovawebsite.md"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true
 }
